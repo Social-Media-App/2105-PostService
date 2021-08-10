@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import rev.model.Comment;
 import rev.model.Post;
 
-@Service
+
 public interface CommentService {
 
 	public Comment save(Comment comment);

@@ -3,11 +3,13 @@ package rev.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import rev.dao.CommentDao;
 import rev.model.Comment;
 import rev.model.Post;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 	
 	private CommentDao commentDao;

@@ -12,5 +12,5 @@ import rev.model.ReplyComment;
 public interface ReplyCommentDao extends JpaRepository<ReplyComment, Integer>{
 
 	public ReplyComment save(ReplyComment replyComment);
-	public List<ReplyComment> findByPost(int postId);
+	public List<ReplyComment> findByCommentId(int commentId);
 }

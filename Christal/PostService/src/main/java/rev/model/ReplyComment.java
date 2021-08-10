@@ -33,7 +33,7 @@ public class ReplyComment {
 	private int replyId ;
 	
 	@Column(name="comment_id")
-	private int CommentId;
+	private int commentId;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	@JoinColumn(name="post", nullable=false)
