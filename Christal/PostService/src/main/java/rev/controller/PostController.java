@@ -1,5 +1,6 @@
 package rev.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,20 +13,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import rev.model.Post;
+import rev.model.Utilities;
+import rev.service.CommentService;
+import rev.service.LikesService;
 import rev.service.PostService;
 
 @RestController
-@RequestMapping("/post-service")
+@RequestMapping("/post")
 @CrossOrigin("*")
 public class PostController {
 	
 	private PostService postServ;
+	private CommentService commentServ;
+	private LikesService likesServ;
+
+	
+
 
 	@Autowired
-	public PostController(PostService postServ) {
+	public PostController(PostService postServ, CommentService commentServ, LikesService likesServ) {
 		super();
 		this.postServ = postServ;
+		this.commentServ = commentServ;
+		this.likesServ = likesServ;
 	}
+	
+//	public PostController(PostService postServ) {
+//		super();
+//		this.postServ = postServ;
+//	}
 	
 	
 	//this method get all posts available
@@ -36,6 +52,9 @@ public class PostController {
 	}
 	
 	
+
+
+
 	//this method create a new post
 	@PostMapping(value="/createpost")
 	public @ResponseBody Post makeNewPost(@RequestBody Post post){
@@ -44,6 +63,21 @@ public class PostController {
 	}
 	
 	
-	
-	
+	//this method get all posts available with their comments
+		@GetMapping(value="/getpostsdetails")
+		public @ResponseBody List<Utilities> getAllPostsWithComments(){
+			System.out.println("Making a new post");
+			List<Utilities> myObject=new ArrayList<>();
+			Utilities utilities=null;
+			for (Post post: postServ.selectAll()) {
+				System.out.println(commentServ.findByPost(post));
+				utilities=new Utilities(post,commentServ.findByPost(post),likesServ.findAllLikeForPost(post).size());
+				System.out.println(post);
+				myObject.add(utilities);
+			}
+			
+			return myObject; 
+			
+		}
+		
 }

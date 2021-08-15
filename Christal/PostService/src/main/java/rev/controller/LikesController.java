@@ -29,7 +29,7 @@ public class LikesController {
 	
 	//this method get the number of like by post
 			@GetMapping(value="/getLikes")
-			public @ResponseBody Integer getNbByPost(Post post){
+			public @ResponseBody Integer getNbByPost(@RequestBody Post post){
 				
 				return (likesServ.findAllLikeForPost(post)).size();
 			}

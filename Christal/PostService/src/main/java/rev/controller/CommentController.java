@@ -31,7 +31,7 @@ public class CommentController {
 	
 	//this method get all comments by post
 		@GetMapping(value="/getcomment")
-		public @ResponseBody List<Comment> getCommentByPost(Post post){
+		public @ResponseBody List<Comment> getCommentByPost(@RequestBody Post post){
 			
 			return commentServ.findByPost(post);
 		}
@@ -43,6 +43,13 @@ public class CommentController {
 			
 			return commentServ.save(comment);
 		}
+		//this method get all comments by post
+		@GetMapping(value="/getAllcomment")
+		public @ResponseBody List<Comment> getAllComments(){
+			
+			return commentServ.findAll();
+		}
+		
 		
 		
 }
