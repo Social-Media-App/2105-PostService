@@ -8,7 +8,7 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
   instance:
-    instance-id: ${spring.application.name}:{random.value}
+    instance-id: ${spring.application.name}:${random.value}
     preferIpAddress: true
 spring:
   application:
