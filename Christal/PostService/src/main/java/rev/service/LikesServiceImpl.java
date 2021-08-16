@@ -32,5 +32,7 @@ public class LikesServiceImpl implements LikesService {
 		
 		return likesDao.findByPost(post);
 	}
+	
+	
 
 }

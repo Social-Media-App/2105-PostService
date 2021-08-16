@@ -14,7 +14,9 @@ public class CommentServiceImpl implements CommentService {
 	
 	private CommentDao commentDao;
 	
-	
+	public CommentServiceImpl() {
+		
+	}
 	@Autowired
 	public CommentServiceImpl(CommentDao commentDao) {
 		super();

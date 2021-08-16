@@ -3,6 +3,7 @@ package rev.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,6 +17,7 @@ import rev.service.CommentService;
 
 @RestController
 @RequestMapping("/comment")
+@CrossOrigin("*")
 public class CommentController {
 	
 	private CommentService commentServ;
@@ -29,7 +31,7 @@ public class CommentController {
 	
 	//this method get all comments by post
 		@GetMapping(value="/getcomment")
-		public @ResponseBody List<Comment> getCommentByPost(Post post){
+		public @ResponseBody List<Comment> getCommentByPost(@RequestBody Post post){
 			
 			return commentServ.findByPost(post);
 		}
@@ -41,6 +43,13 @@ public class CommentController {
 			
 			return commentServ.save(comment);
 		}
+		//this method get all comments by post
+		@GetMapping(value="/getAllcomment")
+		public @ResponseBody List<Comment> getAllComments(){
+			
+			return commentServ.findAll();
+		}
+		
 		
 		
 }
