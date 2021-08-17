@@ -58,7 +58,7 @@ public class PostController {
 	//this method create a new post
 	@PostMapping(value="/createpost")
 	public @ResponseBody Post makeNewPost(@RequestBody Post post){
-		System.out.println("Making a new post");
+		System.out.println("Making a new post"+post);
 		return postServ.createPost(post);
 	}
 	
@@ -71,7 +71,7 @@ public class PostController {
 			Utilities utilities=null;
 			for (Post post: postServ.selectAll()) {
 				System.out.println(commentServ.findByPost(post));
-				utilities=new Utilities(post,commentServ.findByPost(post),likesServ.findAllLikeForPost(post).size());
+				utilities=new Utilities(post,commentServ.findByPost(post),likesServ.findAllLikeForPost(post));
 				System.out.println(post);
 				myObject.add(utilities);
 			}

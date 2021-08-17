@@ -29,10 +29,10 @@ public class Post {
 	private int postId;
 	
 	@Column(name="content")
-	private String Content;
+	private String content;
 	
 	@Column(name="picture")
-	private String Picture;
+	private String picture;
 	
 	@Column(name="user_id")
 	private int userId;
@@ -41,41 +41,12 @@ public class Post {
 	private String  date;
 	
 	@Column(name="group_id")
-	private int GroupId;
+	private int groupId;
 	
 	@Column(name="auto_delete_date")
 	private String autoDeleteDate;
 	
 	@Transient
 	private User postOwner;
-	
 
 }
-
-
-//Post Table:
-//-Id
-//-Content (text)
-//-Picture 
-//-User (FK)
-//-Date
-//-Group Id
-//-Auto Delete date
-//
-//Likes for post table:
-//-post Id (FK)
-//-User (FK)
-//
-//Comment Table:
-//-Id of the comment
-//-Post id(FK)
-//-Comment for the post (text)
-//-user id (FK)
-//
-//Reply Table:
-//-id 
-//-Comment id (FK)
-//-Post id(FK)
-//-Reply content (text)
-//-User id (FK)
-//-Picture???

@@ -54,7 +54,7 @@ public class PostServiceImpl implements PostService {
 	@Override
 	public List<Post> selectAll() {
 		List<User> userList = new ArrayList<>();
-		User[] userArr = restTemp.getForObject("http://localhost:9005/user-service/getallusers", User[].class);
+		User[] userArr = restTemp.getForObject("http://localhost:9082/login-service/getall", User[].class);
 		Collections.addAll(userList, userArr);
 		List<Post> postList = myPostDao.findAll();
 		for(Post tempPost: postList) {

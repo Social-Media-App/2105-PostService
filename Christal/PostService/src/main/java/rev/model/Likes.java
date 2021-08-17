@@ -11,6 +11,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,11 +39,14 @@ public class Likes {
 	@Column(name="user_id")
 	private int userId;
 	
-	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+	@JsonProperty(access = Access.WRITE_ONLY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="post", nullable=false)
 	private Post post;
-	
-	
-	
+
+	@JsonIgnore
+	public Post getPost() {
+		return post;
+	}
 
 }

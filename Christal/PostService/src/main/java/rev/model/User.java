@@ -32,5 +32,7 @@ public class User {
 	private String backgroundPicture;
 
 	private String email;
+	
+	
 
 }
