@@ -1,17 +1,22 @@
 package rev.service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import rev.dao.PostDao;
 import rev.model.Post;
+import rev.model.User;
 
 @Service
 public class PostServiceImpl implements PostService {
 	
 	private PostDao myPostDao;
+	private RestTemplate restTemp = new RestTemplate();
 	
 	
 	@Autowired
@@ -48,8 +53,20 @@ public class PostServiceImpl implements PostService {
 
 	@Override
 	public List<Post> selectAll() {
-		
-		return myPostDao.findAll();
+		List<User> userList = new ArrayList<>();
+		User[] userArr = restTemp.getForObject("http://localhost:9005/user-service/getallusers", User[].class);
+		Collections.addAll(userList, userArr);
+		List<Post> postList = myPostDao.findAll();
+		for(Post tempPost: postList) {
+			user:
+			for(User tempUser: userList) {
+				if(tempPost.getUserId()==tempUser.getUserId()) {
+					tempPost.setPostOwner(tempUser);
+					break user;
+				}
+			}
+		}
+		return postList;
 		
 	}
 
