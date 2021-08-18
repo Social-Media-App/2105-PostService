@@ -37,10 +37,17 @@ public class Comment {
 	private Post post;
 	
 	@Column(name="comment")
-	private String Comment;
+	private String comment;
 	
 	@Column(name="user_id")
 	private int userId;
+
+	public Comment(Post post, String comment, int userId) {
+		super();
+		this.post = post;
+		this.comment = comment;
+		this.userId = userId;
+	}
 	
 	
 }

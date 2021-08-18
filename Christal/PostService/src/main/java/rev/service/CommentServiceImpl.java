@@ -3,16 +3,24 @@ package rev.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import rev.dao.CommentDao;
+import rev.dao.PostDao;
 import rev.model.Comment;
 import rev.model.Post;
 
+@Service
 public class CommentServiceImpl implements CommentService {
 	
 	private CommentDao commentDao;
 	
+	@Autowired
+	private PostDao postDao;
 	
+	public CommentServiceImpl() {
+		
+	}
 	@Autowired
 	public CommentServiceImpl(CommentDao commentDao) {
 		super();
@@ -22,7 +30,9 @@ public class CommentServiceImpl implements CommentService {
 	
 	@Override
 	public Comment save(Comment comment) {
-		
+		System.out.println(comment);
+		Post myPost = postDao.findByPostId(comment.getPost().getPostId());
+		comment.setPost(myPost);
 		return commentDao.save(comment);
 	}
 
