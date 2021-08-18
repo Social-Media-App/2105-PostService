@@ -1,5 +1,7 @@
 package rev.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +31,9 @@ public class LikesController {
 	
 	//this method get the number of like by post
 			@GetMapping(value="/getLikes")
-			public @ResponseBody Integer getNbByPost(@RequestBody Post post){
+			public @ResponseBody List<Likes> getNbByPost(@RequestBody Post post){
 				
-				return (likesServ.findAllLikeForPost(post)).size();
+				return (likesServ.findAllLikeForPost(post));
 			}
 			
 			//this method make new like to a given post
@@ -39,7 +41,6 @@ public class LikesController {
 			public @ResponseBody Likes makeLiket(@RequestBody Likes like){
 				
 				return likesServ.likeAPost(like);
-			}
+			}		
 	
-
 }

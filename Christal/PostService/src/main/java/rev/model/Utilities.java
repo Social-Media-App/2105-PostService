@@ -6,7 +6,7 @@ public class Utilities {
 	
 	public Post post;
 	public List<Comment> comments;
-	public int likeNumber;
+	public List<Likes> likeNumber;
 	
 	public Utilities() {
 		// TODO Auto-generated constructor stub
@@ -21,7 +21,7 @@ public class Utilities {
 
 
 
-	public Utilities(Post post, List<Comment> comments, int likeNumber) {
+	public Utilities(Post post, List<Comment> comments, List<Likes> likeNumber) {
 		super();
 		this.post = post;
 		this.comments = comments;
@@ -44,11 +44,11 @@ public class Utilities {
 		this.comments = comments;
 	}
 
-	public int getLikeNumber() {
+	public List<Likes> getLikeNumber() {
 		return likeNumber;
 	}
 
-	public void setLikeNumber(int likeNumber) {
+	public void setLikeNumber(List<Likes> likeNumber) {
 		this.likeNumber = likeNumber;
 	}
 	

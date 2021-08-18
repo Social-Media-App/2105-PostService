@@ -13,5 +13,7 @@ public interface LikesDao extends JpaRepository<Likes, Integer>{
 
 	public Likes save(Likes likes);
 	public List<Likes> findByPost(Post post);
+	public boolean existsByUserIdAndPost(Integer userId, Post post);
+	public void deleteAllByUserIdAndPost(Integer userId, Post post);
 	
 }
