@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,17 +31,17 @@ public class CommentController {
 	}
 	
 	//this method get all comments by post
-		@GetMapping(value="/getcomment")
-		public @ResponseBody List<Comment> getCommentByPost(@RequestBody Post post){
+		@GetMapping(value="/getcomment/{postId}")
+		public @ResponseBody List<Comment> getCommentByPost(@PathVariable(value = "postId") Integer postId){
 			
-			return commentServ.findByPost(post);
+			return commentServ.findByPostId(postId);
 		}
 		
 		
 		//this method create a new comment
 		@PostMapping(value="/newcomment")
 		public @ResponseBody Comment makeNewComment(@RequestBody Comment comment){
-			
+			System.out.println("making comment"+comment);
 			return commentServ.save(comment);
 		}
 		//this method get all comments by post

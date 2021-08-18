@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,10 +38,20 @@ public class Comment {
 	private Post post;
 	
 	@Column(name="comment")
-	private String Comment;
+	private String comment;
 	
 	@Column(name="user_id")
 	private int userId;
+	
+	@Transient
+	private User commentedBy;
+
+	public Comment(Post post, String comment, int userId) {
+		super();
+		this.post = post;
+		this.comment = comment;
+		this.userId = userId;
+	}
 	
 	
 }

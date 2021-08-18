@@ -13,5 +13,6 @@ public interface CommentService {
 	public Comment save(Comment comment);
 	public Comment findByCommentId(int id);
 	public List<Comment> findByPost(Post post);
+	public List<Comment> findByPostId(Integer postId);
 	public List<Comment> findAll();
 }

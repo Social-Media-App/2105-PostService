@@ -71,7 +71,8 @@ public class PostController {
 			Utilities utilities=null;
 			for (Post post: postServ.selectAll()) {
 				System.out.println(commentServ.findByPost(post));
-				utilities=new Utilities(post,commentServ.findByPost(post),likesServ.findAllLikeForPost(post));
+				
+				utilities=new Utilities(post,commentServ.findByPostId(post.getPostId()),likesServ.findAllLikeForPost(post));
 				System.out.println(post);
 				myObject.add(utilities);
 			}
