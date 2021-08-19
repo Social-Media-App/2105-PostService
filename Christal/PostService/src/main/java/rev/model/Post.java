@@ -1,12 +1,18 @@
 package rev.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,8 +43,10 @@ public class Post {
 	@Column(name="user_id")
 	private int userId;
 	
-	@Column(name="date")
-	private String  date;
+	@CreationTimestamp
+	@Column(name = "date")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date date;
 	
 	@Column(name="group_id")
 	private int groupId;
