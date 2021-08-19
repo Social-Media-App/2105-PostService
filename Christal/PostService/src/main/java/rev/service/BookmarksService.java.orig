@@ -10,4 +10,8 @@ public interface BookmarksService {
 	public Bookmarks bookmarkAPost(Bookmarks bookmark);
 	public List<Bookmarks> findAllBookmarksForPost(Post post);
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d37f7129d7427bdbac1086eea1b968b7c4a7c78e

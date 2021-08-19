@@ -47,4 +47,8 @@ public class Bookmarks {
 		return post;
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d37f7129d7427bdbac1086eea1b968b7c4a7c78e

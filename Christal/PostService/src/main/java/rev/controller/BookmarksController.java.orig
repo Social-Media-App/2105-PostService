@@ -44,4 +44,8 @@ public class BookmarksController {
 				return bookmarksServ.bookmarkAPost(bookmark);
 			}		
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d37f7129d7427bdbac1086eea1b968b7c4a7c78e

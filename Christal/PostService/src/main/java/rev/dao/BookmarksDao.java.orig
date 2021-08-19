@@ -16,4 +16,8 @@ public interface BookmarksDao extends JpaRepository<Bookmarks, Integer> {
 	public boolean existsByUserIdAndPost(Integer userId, Post post);
 	public void deleteAllByUserIdAndPost(Integer userId, Post post);
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d37f7129d7427bdbac1086eea1b968b7c4a7c78e
