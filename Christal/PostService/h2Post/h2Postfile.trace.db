@@ -1,0 +1,6 @@
+2021-08-14 09:46:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "POSTS" not found; SQL statement:
+INSERT INTO posts (content, user_id ) VALUES ('dkldks dkdlsks sldkdkslkks slkdkd slskdk', 1) [42102-200]
+2021-08-14 09:53:13 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "POSTS" not found; SQL statement:
+INSERT INTO posts (content, user_id ) VALUES ('dkldks dkdlsks sldkdkslkks slkdkd slskdk', 1) [42102-200]
