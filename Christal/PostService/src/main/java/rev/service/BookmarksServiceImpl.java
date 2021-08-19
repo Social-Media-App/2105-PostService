@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import rev.dao.BookmarksDao;
@@ -13,6 +14,7 @@ import rev.model.Post;
 @Service
 public class BookmarksServiceImpl implements BookmarksService {
 	
+	@Autowired
 	private BookmarksDao bookmarksDao;
 	
 	
