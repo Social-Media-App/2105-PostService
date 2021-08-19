@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import rev.model.Post;
 import rev.model.Utilities;
+import rev.service.BookmarksService;
 import rev.service.CommentService;
 import rev.service.LikesService;
 import rev.service.PostService;
@@ -26,16 +27,18 @@ public class PostController {
 	private PostService postServ;
 	private CommentService commentServ;
 	private LikesService likesServ;
+	private BookmarksService bookmarksServ;
 
 	
 
 
 	@Autowired
-	public PostController(PostService postServ, CommentService commentServ, LikesService likesServ) {
+	public PostController(PostService postServ, CommentService commentServ, LikesService likesServ, BookmarksService bookmarksServ) {
 		super();
 		this.postServ = postServ;
 		this.commentServ = commentServ;
 		this.likesServ = likesServ;
+		this.bookmarksServ = bookmarksServ;
 	}
 	
 //	public PostController(PostService postServ) {
@@ -71,8 +74,7 @@ public class PostController {
 			Utilities utilities=null;
 			for (Post post: postServ.selectAll()) {
 				System.out.println(commentServ.findByPost(post));
-				
-				utilities=new Utilities(post,commentServ.findByPostId(post.getPostId()),likesServ.findAllLikeForPost(post));
+				utilities=new Utilities(post,commentServ.findByPostId(post.getPostId()),likesServ.findAllLikeForPost(post), bookmarksServ.findAllBookmarksForPost(post));
 				System.out.println(post);
 				myObject.add(utilities);
 			}
