@@ -7,6 +7,7 @@ public class Utilities {
 	public Post post;
 	public List<Comment> comments;
 	public List<Likes> likeNumber;
+	public List<Bookmarks> bookmarksList;
 	
 	public Utilities() {
 		// TODO Auto-generated constructor stub
@@ -21,11 +22,12 @@ public class Utilities {
 
 
 
-	public Utilities(Post post, List<Comment> comments, List<Likes> likeNumber) {
+	public Utilities(Post post, List<Comment> comments, List<Likes> likeNumber, List<Bookmarks> bookmarksList) {
 		super();
 		this.post = post;
 		this.comments = comments;
 		this.likeNumber = likeNumber;
+		this.bookmarksList = bookmarksList;
 	}
 
 	public Post getPost() {
@@ -51,6 +53,20 @@ public class Utilities {
 	public void setLikeNumber(List<Likes> likeNumber) {
 		this.likeNumber = likeNumber;
 	}
+
+
+
+	public List<Bookmarks> getBookmarksList() {
+		return bookmarksList;
+	}
+
+
+
+	public void setBookmarksList(List<Bookmarks> bookmarksList) {
+		this.bookmarksList = bookmarksList;
+	}
+	
+	
 	
 	
 
